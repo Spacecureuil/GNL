@@ -6,7 +6,7 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:01:20 by pmaury            #+#    #+#             */
-/*   Updated: 2021/05/24 17:07:14 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/05/24 19:12:34 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,15 @@ int		get_next_line(int fd, char **line)
 		if (i == BUFFER_SIZE || buff[i] != '\n')
 		{
 			*line = ft_strnjoin(*line, buff, i);
-			ft_memcpy(buff, buff + i + 1, BUFFER_SIZE - i);
+		 	ft_realign(buff, i + 1);
 			ret = read(fd, buff, BUFFER_SIZE);
 			if (ret < 1)
-			{
-				free(*line);
-				*line = NULL;
 				return (ret);
-			}
 		}
 		else
 		{
 			*line = ft_strnjoin(*line, buff, i);
-			ft_memcpy(buff, buff + i + 1, BUFFER_SIZE - i);
+			ft_realign(buff, i + 1);
 			return (1);
 		}
 	}
