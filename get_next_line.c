@@ -6,14 +6,14 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 15:01:20 by pmaury            #+#    #+#             */
-/*   Updated: 2021/05/24 19:12:34 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/05/25 11:14:46 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "get_next_line.h"
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	buff[BUFFER_SIZE];
 	int			i;

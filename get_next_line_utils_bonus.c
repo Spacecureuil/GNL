@@ -6,29 +6,26 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:20:24 by pmaury            #+#    #+#             */
-/*   Updated: 2021/04/23 17:20:26 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/05/25 11:14:34 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	ft_realign(char *buff, int n)
 {
-	unsigned char	*temp1;
-	unsigned char	*temp2;
-
-	temp1 = (unsigned char *)src;
-	temp2 = (unsigned char *)dest;
-	while (n > 0)
+	int	i = 0;
+	
+	while (n + i < BUFFER_SIZE)
 	{
-		*temp2++ = *temp1++;
-		n--;
+		buff[i] = buff[n + i];
+		i++;
 	}
-	return (dest);
+	buff[i] = '\0';
 }
 
-int		ft_strnlen(char *s)
+int	ft_strnlen(char *s)
 {
 	int		i;
 

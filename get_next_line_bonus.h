@@ -6,7 +6,7 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:19:40 by pmaury            #+#    #+#             */
-/*   Updated: 2021/04/23 17:20:00 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/05/25 11:06:29 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int		get_next_line(int fd, char **line);
 char	*ft_strnjoin(char *str1, char *str2, int n);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void 	ft_realign(char *buff, int n);
 int		ft_strnlen(char *s);
 
 #endif

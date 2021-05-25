@@ -6,14 +6,14 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/23 17:17:15 by pmaury            #+#    #+#             */
-/*   Updated: 2021/04/23 17:47:28 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/05/25 11:14:13 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	static char	buff[64][BUFFER_SIZE];
 	int			i;
@@ -28,7 +28,7 @@ int		get_next_line(int fd, char **line)
 		if (buff[fd][i] != '\n')
 		{
 			*line = ft_strnjoin(*line, buff[fd], i);
-			ft_memcpy(buff[fd], buff[fd] + i + 1, BUFFER_SIZE - i);
+			ft_realign(buff[fd], i + 1);
 			ret = read(fd, buff[fd], BUFFER_SIZE);
 			if (ret < 1)
 				return (ret);
@@ -36,7 +36,7 @@ int		get_next_line(int fd, char **line)
 		else
 		{
 			*line = ft_strnjoin(*line, buff[fd], i);
-			ft_memcpy(buff[fd], buff[fd] + i + 1, BUFFER_SIZE - i);
+			ft_realign(buff[fd], i + 1);
 			return (1);
 		}
 	}
