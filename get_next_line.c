@@ -15,10 +15,10 @@
 
 int	get_next_line(int fd, char **line)
 {
-	static char	buff[BUFFER_SIZE];
+	static char	buff[BUFFER_SIZE + 1];
 	int			i;
 	int			ret;
-		
+
 	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, buff, 0) < 0 || line == NULL)
 		return (-1);
 	*line = NULL;
@@ -28,7 +28,7 @@ int	get_next_line(int fd, char **line)
 		if (i == BUFFER_SIZE || buff[i] != '\n')
 		{
 			*line = ft_strnjoin(*line, buff, i);
-		 	ft_realign(buff, i + 1);
+			ft_realign(buff, i + 1);
 			ret = read(fd, buff, BUFFER_SIZE);
 			if (ret < 1)
 				return (ret);

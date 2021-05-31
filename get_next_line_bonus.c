@@ -15,10 +15,10 @@
 
 int	get_next_line(int fd, char **line)
 {
-	static char	buff[64][BUFFER_SIZE];
+	static char	buff[64][BUFFER_SIZE + 1];
 	int			i;
 	int			ret;
-		
+
 	if (fd < 0 || fd >= 64 || BUFFER_SIZE < 1 || read(fd, buff[fd], 0) < 0
 		|| line == NULL)
 		return (-1);

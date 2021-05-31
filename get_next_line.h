@@ -17,11 +17,11 @@
 #  define BUFFER_SIZE 4096
 # endif
 
-#include <stdlib.h>
+# include <stdlib.h>
 
 int		get_next_line(int fd, char **line);
 char	*ft_strnjoin(char *str1, char *str2, int n);
-void 	ft_realign(char *buff, int n);
+void	ft_realign(char *buff, int n);
 int		ft_strnlen(char *s);
 
 #endif
