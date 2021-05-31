@@ -52,5 +52,6 @@ void	ft_realign(char *buff, int n)
 		buff[i] = buff[n + i];
 		i++;
 	}
-	buff[i] = '\0';
+	while (i < BUFFER_SIZE)
+		buff[i++] = '\0';
 }
