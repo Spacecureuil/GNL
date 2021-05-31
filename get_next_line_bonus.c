@@ -19,13 +19,14 @@ int	get_next_line(int fd, char **line)
 	int			i;
 	int			ret;
 		
-	if (fd < 0 || fd >= 64 || BUFFER_SIZE < 1 || read(fd, buff[fd], 0) < 0)
+	if (fd < 0 || fd >= 64 || BUFFER_SIZE < 1 || read(fd, buff[fd], 0) < 0
+		|| line == NULL)
 		return (-1);
 	*line = NULL;
 	while (42)
 	{
 		i = ft_strnlen(buff[fd]);
-		if (buff[fd][i] != '\n')
+		if (i == BUFFER_SIZE || buff[fd][i] != '\n')
 		{
 			*line = ft_strnjoin(*line, buff[fd], i);
 			ft_realign(buff[fd], i + 1);
@@ -41,3 +42,4 @@ int	get_next_line(int fd, char **line)
 		}
 	}
 }
+ 

@@ -19,7 +19,7 @@ int	get_next_line(int fd, char **line)
 	int			i;
 	int			ret;
 		
-	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, buff, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE < 1 || read(fd, buff, 0) < 0 || line == NULL)
 		return (-1);
 	*line = NULL;
 	while (42)
