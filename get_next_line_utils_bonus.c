@@ -11,21 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "get_next_line_bonus.h"
-
-void	ft_realign(char *buff, int n)
-{
-	int	i;
-	
-	i = 0;
-	while (n + i < BUFFER_SIZE)
-	{
-		buff[i] = buff[n + i];
-		i++;
-	}
-	while (i < BUFFER_SIZE)
-		buff[i++] = '\0';
-}
+#include "get_next_line.h"
 
 int	ft_strnlen(char *s)
 {
@@ -55,4 +41,18 @@ char	*ft_strnjoin(char *str1, char *str2, int n)
 		dest[i] = str1[i];
 	free(str1);
 	return (dest);
+}
+
+void	ft_realign(char *buff, int n)
+{
+	int	i;
+
+	i = 0;
+	while (n + i < BUFFER_SIZE)
+	{
+		buff[i] = buff[n + i];
+		i++;
+	}
+	while (i < BUFFER_SIZE)
+		buff[i++] = '\0';
 }
