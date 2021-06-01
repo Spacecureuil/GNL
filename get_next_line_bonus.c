@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 10:40:36 by pmaury            #+#    #+#             */
-/*   Updated: 2021/06/01 10:40:36 by pmaury           ###   ########.fr       */
+/*   Created: 2021/06/01 10:45:22 by pmaury            #+#    #+#             */
+/*   Updated: 2021/06/01 10:45:25 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include <unistd.h>
 #include "get_next_line_bonus.h"
@@ -43,4 +42,3 @@ int	get_next_line(int fd, char **line)
 		}
 	}
 }
- 
