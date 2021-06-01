@@ -26,17 +26,14 @@ int	get_next_line(int fd, char **line)
 	while (42)
 	{
 		i = ft_strnlen(buff[fd]);
-		if (i == BUFFER_SIZE || buff[fd][i] != '\n')
+		*line = ft_strnjoin(*line, buff[fd], i);
+		if (i == BUFFER_SIZE || (!buff[fd][0] && !**line))
 		{
-			*line = ft_strnjoin(*line, buff[fd], i);
 			ret = read(fd, buff[fd], BUFFER_SIZE);
 			if (ret < 1)
 				return (ret);
 		}
 		else
-		{
-			*line = ft_strnjoin(*line, buff[fd], i);
 			return (1);
-		}
 	}
 }
