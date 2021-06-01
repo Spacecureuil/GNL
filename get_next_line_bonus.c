@@ -6,7 +6,7 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 10:45:22 by pmaury            #+#    #+#             */
-/*   Updated: 2021/06/01 11:03:22 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/06/01 11:17:22 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	get_next_line(int fd, char **line)
 {
 	static char	buff[64][BUFFER_SIZE + 1];
 	int			i;
+	int			j;
 	int			ret;
 
 	if (fd < 0 || fd >= 64 || BUFFER_SIZE < 1 || read(fd, buff[fd], 0) < 0
@@ -26,9 +27,10 @@ int	get_next_line(int fd, char **line)
 	while (42)
 	{
 		i = ft_strnlen(buff[fd]);
+		j = i;
 		*line = ft_strnjoin(*line, buff[fd], i);
 		ft_realign(buff[fd], i + 1);
-		if (i == BUFFER_SIZE || buff[fd][i] != '\n')
+		if (j == BUFFER_SIZE || !buff[fd][0])
 		{
 			ret = read(fd, buff[fd], BUFFER_SIZE);
 			if (ret < 1)
