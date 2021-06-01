@@ -6,7 +6,7 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 10:45:22 by pmaury            #+#    #+#             */
-/*   Updated: 2021/06/01 11:35:23 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/06/01 12:17:40 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,17 @@ int	get_next_line(int fd, char **line)
 	while (42)
 	{
 		i = ft_strnlen(buff[fd]);
-		*line = ft_strnjoin(*line, buff[fd], i);
-		ft_realign(buff[fd], i + 1);
-		if (!buff[fd][0])
+		if (i == BUFFER_SIZE || buff[fd][i] != '\n')
 		{
+			*line = ft_strnjoin(*line, buff[fd], i);
 			ret = read(fd, buff[fd], BUFFER_SIZE);
-			if (ret < 1 && !**line)
+			if (ret < 1)
 				return (ret);
 		}
 		else
+		{
+			*line = ft_strnjoin(*line, buff[fd], i);
 			return (1);
+		}
 	}
 }

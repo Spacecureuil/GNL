@@ -27,7 +27,9 @@ char	*ft_strnjoin(char *str1, char *str2, int n)
 {
 	int		i;
 	char	*dest;
+	int		j;
 
+	j = n + 1;
 	i = 0;
 	while (str1 && str1[i])
 		i++;
@@ -40,6 +42,7 @@ char	*ft_strnjoin(char *str1, char *str2, int n)
 	while (i--)
 		dest[i] = str1[i];
 	free(str1);
+	ft_realign(str2, j);
 	return (dest);
 }
 
