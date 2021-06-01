@@ -6,7 +6,7 @@
 /*   By: pmaury <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 10:45:22 by pmaury            #+#    #+#             */
-/*   Updated: 2021/06/01 11:25:24 by pmaury           ###   ########.fr       */
+/*   Updated: 2021/06/01 11:35:23 by pmaury           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	get_next_line(int fd, char **line)
 		if (!buff[fd][0])
 		{
 			ret = read(fd, buff[fd], BUFFER_SIZE);
-			if (ret < 1)
+			if (ret < 1 && !**line)
 				return (ret);
 		}
 		else
